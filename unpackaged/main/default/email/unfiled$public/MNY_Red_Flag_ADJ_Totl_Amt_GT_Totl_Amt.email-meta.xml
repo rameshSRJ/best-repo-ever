@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OSVCC_Letter_Head</letterhead>
+    <name>MNY Red Flag - ADJ Totl Amt GT Totl Amt</name>
+    <style>freeForm</style>
+    <subject>Red Flag Alert: Adjusted Total Dollar Amount is greater than the Total Dollar Amount {!Money_Transaction__c.ACH_Type__c}</subject>
+    <textOnly>The following Money Transaction has been marked with a Red Flag.
+
+Please see that the following transaction has an Adjusted Total Dollar Amount that is greater than the Total Dollar Amount. The status of the transaction(s) has been moved to File Pending. The Treasury Team will need to review the Settlement Detail to determine next steps:
+
+If the Money Transaction needs to be canceled, then the Treasury Team will change status of the Money Transaction from &apos;File Pending&apos; to &apos;File Canceled&apos;.
+If Money Transaction needs to be disbursed, then the Treasury Team will change status of the Money Transaction from &apos;File Pending&apos; to &apos;New&apos; or  &apos;Approved&apos;.
+
+
+Account: {!Money_Transaction__c.Account__c}
+
+MNY #: {!Money_Transaction__c.Name}
+
+Settlement Date First: {!Money_Transaction__c.Settlement_Date_First__c}
+
+Exception Reason(s): Adjusted Total Dollar Amount is greater than the Total Dollar Amount
+
+Total Dollar Amount: {!Money_Transaction__c.Total_ACH_Amount__c}
+
+Adjusted Total Dollar Amount: {!Money_Transaction__c.Adjusted_Total_Dollar_Amount__c}
+
+To access the money transaction, please click on the following,
+{!Money_Transaction__c.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
